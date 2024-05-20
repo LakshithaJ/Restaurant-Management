@@ -14,8 +14,32 @@
 
 </template>
 <script>
+import axios from 'axios';
 export default{
-    name: "Login"
+    name: "Login",
+    data(){
+        return {
+            userEmail: "",
+            userPassword: "",
+            getURL: 'http://localhost:3000/users'
+        }
+    },
+    methods :{
+        async onLogin(){
+            let res = await axios.get(this.getURL + `?email=${this.userEmail}&password=${this.userPassword}`);
+            if(res.status === 200 && res.data.length){
+                localStorage.setItem('user_info', JSON.stringify(res.data[0]));
+                this.$router.push('/');
+            }
+        }
+    },
+    mounted(){
+        let user = localStorage.getItem('user_info');
+        if(user){
+            this.$router.push('/')
+        }
+    }
+
 }
 </script>
 <style>
