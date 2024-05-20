@@ -34,7 +34,8 @@ export default {
             });
 
             if(res.status === 201){
-                localStorage.setItem('user_info', JSON.stringify(res.data))
+                localStorage.setItem('user_info', JSON.stringify(res.data));
+                this.$router.push('/');
             }
         }
     }
