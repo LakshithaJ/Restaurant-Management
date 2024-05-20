@@ -3,7 +3,13 @@
 </template>
 <script>
 export default {
-    name: 'Home'
+    name: 'Home',
+    mounted(){
+        let user = localStorage.getItem('user_info');
+        if(!user){
+            this.$router.push('/signup')
+        }
+    }
 }
 </script>
 <style>

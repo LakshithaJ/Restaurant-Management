@@ -38,6 +38,12 @@ export default {
                 this.$router.push('/');
             }
         }
+    },
+    mounted(){
+        let user = localStorage.getItem('user_info');
+        if(user){
+            this.$router.push('/')
+        }
     }
 }
 </script>
