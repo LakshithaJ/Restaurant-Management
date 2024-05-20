@@ -7,6 +7,9 @@
         <input type="email" v-model="userEmail" placeholder="Enter Email">
         <input type="password" v-model="userPassword" placeholder="Enter Password">
         <input type="submit" v-on:click="onSignUp" value="Sign Up" >
+        <p>
+            <router-link to="/login">Login</router-link>
+        </p>
     </div>
     </div>
 
