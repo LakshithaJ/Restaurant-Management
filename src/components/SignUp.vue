@@ -61,6 +61,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
 }
 .app-signup-form-container{
     display: flex;
