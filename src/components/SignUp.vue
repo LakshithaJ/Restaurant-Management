@@ -3,18 +3,41 @@
         <img class="app-logo" alt="Vue logo" src="../assets/logo.png">
     <h1>Sign Up!</h1>
     <div class="app-signup-form-container">
-        <input type="text" placeholder="Enter Name">
-        <input type="email" placeholder="Enter Email">
-        <input type="password" placeholder="Enter Password">
-        <input type="submit" value="Sign Up" >
+        <input type="text" v-model="userName" placeholder="Enter Name">
+        <input type="email" v-model="userEmail" placeholder="Enter Email">
+        <input type="password" v-model="userPassword" placeholder="Enter Password">
+        <input type="submit" v-on:click="onSignUp" value="Sign Up" >
     </div>
     </div>
 
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-    name : "SignUp"
+    name : "SignUp",
+    data(){
+        return {
+            userName: "",
+            userEmail: "",
+            userPassword: "",
+            postURL: "http://localhost:3000/users"
+        }
+    },
+    methods:{
+        async onSignUp(){
+            let res = await axios.post(this.postURL, {
+                name : this.userName,
+                email: this.userEmail,
+                password: this.userPassword
+            });
+
+            if(res.status === 201){
+                localStorage.setItem('user_info', JSON.stringify(res.data))
+            }
+        }
+    }
 }
 </script>
 <style>
