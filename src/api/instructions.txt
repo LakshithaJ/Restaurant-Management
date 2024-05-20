@@ -1,0 +1,11 @@
+I have created the users in db.json using postman
+Steps:
+0. Create a db.json file and run the command: json-server --watch db.json in its location
+1. Create an empty Users object in db.json file
+2. Go to postman and Ctrl+T, change the method to POST, paste "http://localhost:3000/users" in the URL, click on body, select RAW format and create the object as below and hit send
+{
+    "name": "john",
+    "email": "john@test.com",
+    "password":"john@123"
+}
+New user will be added to the Users array in db.json
