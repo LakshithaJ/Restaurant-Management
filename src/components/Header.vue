@@ -1,9 +1,9 @@
 <template>
     <ul class="app-nav-container">
-        <li><a href="">Home</a></li>
-        <li><a href="">Add Restaurant</a></li>
-        <li><a href="">Update Restaurant</a></li>
-        <li><a href="" v-on:click="onLogout" >Logout</a></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/addRestaurant">Add Restaurant</router-link></li>
+        <li><router-link to="/updateRestaurant">Update Restaurant</router-link></li>
+        <li><router-link to="" v-on:click="onLogout" >Logout</router-link></li>
     </ul>
 </template>
 <script>
