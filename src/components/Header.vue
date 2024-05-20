@@ -3,12 +3,18 @@
         <li><a href="">Home</a></li>
         <li><a href="">Add Restaurant</a></li>
         <li><a href="">Update Restaurant</a></li>
-        <li><a href="">Logout</a></li>
+        <li><a href="" v-on:click="onLogout" >Logout</a></li>
     </ul>
 </template>
 <script>
 export default {
     name: 'Header',
+    methods :{
+        onLogout(){
+            localStorage.clear();
+            this.$router.push('/login');
+        }
+    }
 }
 </script>
 <style>
